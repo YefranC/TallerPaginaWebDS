@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taller de TypeScript</title>
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
+    crossorigin="anonymous" />
+  <style>
+    tr {
+      cursor: pointer;
+    }
+    tr:hover {
+      background-color: #f5f5f5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-4">
+    <h1 class="mb-4">TV Series</h1>
+
+    <div class="row">
+
+      <div class="col-md-6">
+        <table class="table table-hover" id="series-table">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Serie</th>
+              <th scope="col">Canal</th>
+              <th scope="col">Temporadas</th>
+            </tr>
+          </thead>
+          <tbody id="series-tbody">
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="col-md-6">
+        <div class="card mb-4" id="series-detail" style="display: none;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img id="series-image" src="/placeholder.svg" class="img-fluid rounded-start" alt="Imagen de la serie" />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title" id="series-title"></h5>
+                <p class="card-text" id="series-description"></p>
+                <a id="series-link" href="#" class="btn btn-primary" target="_blank">Ir a la página oficial</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="scripts.js"></script>
+</body>
+</html>
