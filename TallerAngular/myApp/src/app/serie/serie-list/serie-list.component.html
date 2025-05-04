@@ -1,0 +1,96 @@
+<style>
+  .app-header {
+    background-color: rgb(29, 167, 178);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 4px solid #0e6b75;
+  }
+
+  .app-header img {
+    height: 40px;
+    filter: brightness(0) invert(1);
+    margin-left: -10px;
+  }
+
+  .app-header h1 {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1.8rem;
+    margin: 0;
+  }
+
+  .table th {
+    background-color: #f1f1f1;
+  }
+
+  .table-hover tbody tr:hover {
+    background-color: #e9f7fa;
+    cursor: pointer;
+  }
+
+  .series-detail-card {
+    margin-top: 1.5rem;
+  }
+
+  .series-detail-card img {
+    height: 350px;
+    object-fit: cover;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .series-detail-card .btn {
+    background-color: rgb(29, 167, 178);
+    border: none;
+  }
+
+  .series-detail-card .btn:hover {
+    background-color: #228a99;
+  }
+</style>
+
+<!-- Encabezado -->
+<div class="app-header mb-4">
+  <img src="https://cdn-icons-png.flaticon.com/512/1179/1179120.png
+" alt="TV Logo">
+  <h1>TV Series</h1>
+</div>
+
+<div class="row">
+
+  <!-- Tabla de series -->
+  <div class="col-md-7">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nombre</th>
+          <th>Canal</th>
+          <th>Temporadas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let serie of series; let i = index" (click)="selectSerie(serie)">
+          <td><b>{{ i + 1 }}</b></td>
+          <td>{{ serie.name }}</td>
+          <td>{{ serie.channel }}</td>
+          <td>{{ serie.seasons }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <p><strong>Promedio de temporadas:</strong> {{ calcularPromedioTemporadas() }}</p>
+  </div>
+
+  <!-- Detalle de serie -->
+  <div class="col-md-5" *ngIf="selectedSerie">
+    <div class="card series-detail-card shadow">
+      <img [src]="selectedSerie.poster" class="card-img-top" [alt]="selectedSerie.name">
+      <div class="card-body">
+        <h5 class="card-title">{{ selectedSerie.name }}</h5>
+        <p class="card-text">{{ selectedSerie.description }}</p>
+        <a [href]="selectedSerie.webpage" target="_blank" class="btn btn-primary w-100">Visitar sitio oficial</a>
+      </div>
+    </div>
+  </div>
+</div>
